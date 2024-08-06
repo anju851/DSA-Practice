@@ -1,18 +1,21 @@
+//sorted array is slowly created from the begining of the array, here every element is picked up and compared 
+//with the sorted array created before the index of the element
+
 function SelectionSort(arr){
-  for(var i=0;i<arr.length;i++){
-    var lowest = i;
-    for(var j=i+1;j<arr.length;j++){
-        if(arr[lowest] > arr[j])
-        lowest = j;
+    for(var i=0;i<arr.length;i++){
+      var lowest = i;
+        for(var j=i+1;j<arr.length;j++){
+            if(arr[lowest] > arr[j])
+              lowest = j;
+        }
+        if(i!==lowest){
+            //swap
+            var temp=arr[i];
+            arr[i]=arr[lowest];
+            arr[lowest]=temp;
+        }
     }
-  if(i!==lowest){
-    //swap
-    var temp=arr[i];
-    arr[i]=arr[lowest];
-    arr[lowest]=temp;
-  }
-}
-return arr;
+  return arr;
 }
 
 console.log(SelectionSort([98,-2,5,3,4,1,2,70]));
